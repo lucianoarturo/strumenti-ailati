@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src https://script.google.com https://script.googleusercontent.com; base-uri 'none'; form-action 'none'">
+<title>Strumenti AILATI</title>
+<link rel="stylesheet" href="stile.css">
+</head>
+<body>
+<header>
+  <div class="riga">
+    <h1>Strumenti <span>AILATI</span></h1>
+    <div class="destra">
+      <span id="saluto"></span>
+      <a class="prenota" href="https://calendar.app.google/Bbzf7qiQBK6jHLwY9" target="_blank" rel="noopener">Prenota una call con Luciano</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="caricamento" class="messaggio info">Un momento, preparo la pagina…</div>
+
+  <section class="scheda nascosto" id="entra">
+    <h2>Accesso</h2>
+    <p>Per sicurezza, la prima volta che apri la pagina da questo browser ti mando un codice per email all'indirizzo <strong id="email-mascherata"></strong>. Poi resti dentro per 30 giorni.</p>
+    <button class="principale" id="chiedi-codice">Mandami il codice</button>
+    <div id="campo-codice" class="nascosto">
+      <label for="codice">Codice ricevuto (6 cifre)</label>
+      <input type="text" id="codice" inputmode="numeric" autocomplete="one-time-code" maxlength="8" class="corto">
+      <div><button class="principale" id="entra-con-codice">Entra</button> <button id="rimanda" class="accanto">Mandamene un altro</button></div>
+      <p class="aiuto">Non arriva? Guarda anche nella posta indesiderata. Se il filtro della tua azienda lo blocca, chiama o scrivi a Luciano: riceve una copia del codice e te lo può dire.</p>
+    </div>
+    <div id="esito-entra"></div>
+  </section>
+
+  <section class="scheda nascosto" id="nuova">
+    <h2>Nuova richiesta</h2>
+    <label for="progetto">Progetto</label>
+    <select id="progetto"></select>
+
+    <div id="campi-progetto">
+      <label for="testo">Cosa vuoi che faccia?</label>
+      <p class="aiuto">Scrivi come lo chiederesti a un collega. Per esempio: «prepara la bozza del manuale partendo dal manuale vecchio» oppure «verifica la bozza nuova rispetto ai commenti».</p>
+      <textarea id="testo"></textarea>
+
+      <label for="f-bozza">Bozza di riferimento <span class="aiuto">(facoltativa)</span></label>
+      <input type="file" id="f-bozza" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.xls,.xlsx,.ods,.csv,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.tif,.tiff,.bmp,.webp,.heic,.svg,.step,.stp,.igs,.iges,.dwg,.dxf,.indd,.idml,.eml,.msg,.mp4,.mov">
+      <label for="f-correzioni">Correzioni o commenti <span class="aiuto">(facoltativo: PDF commentato, Word, email salvata…)</span></label>
+      <input type="file" id="f-correzioni" accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.xls,.xlsx,.ods,.csv,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.tif,.tiff,.bmp,.webp,.heic,.svg,.step,.stp,.igs,.iges,.dwg,.dxf,.indd,.idml,.eml,.msg,.mp4,.mov">
+      <label for="f-fonti">Altre fonti <span class="aiuto">(facoltative, anche più file)</span></label>
+      <input type="file" id="f-fonti" multiple accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.xls,.xlsx,.ods,.csv,.ppt,.pptx,.jpg,.jpeg,.png,.gif,.tif,.tiff,.bmp,.webp,.heic,.svg,.step,.stp,.igs,.iges,.dwg,.dxf,.indd,.idml,.eml,.msg,.mp4,.mov">
+    </div>
+
+    <div id="campi-nuovo" class="nascosto">
+      <label for="n-prodotto">Prodotto</label>
+      <input type="text" id="n-prodotto" placeholder="Per esempio: VLP">
+      <label for="n-tipo">Tipo di documento</label>
+      <select id="n-tipo">
+        <option>Manuale</option><option>Leaflet</option><option>Listino</option><option>Altro</option>
+      </select>
+      <label for="n-note">Note <span class="aiuto">(facoltative)</span></label>
+      <textarea id="n-note" placeholder="Cosa ti servirà fare in questo progetto"></textarea>
+      <p class="aiuto">Le fonti si caricano dopo, quando il progetto è aperto: di solito ci vuole meno di mezz'ora.</p>
+    </div>
+
+    <button class="principale" id="invia">Invia richiesta</button>
+    <div id="esito-invio"></div>
+  </section>
+
+  <section class="scheda nascosto" id="elenco">
+    <h2 id="titolo-elenco">Richieste e risposte</h2>
+    <p class="aiuto">Lo stato si aggiorna quando riapri la pagina o premi <button class="piccolo" id="aggiorna">Aggiorna</button></p>
+    <div id="richieste"></div>
+    <div id="file"></div>
+  </section>
+</main>
+
+<footer>
+  I file che carichi restano nell'archivio Google Drive di AILATI, nella cartella del tuo progetto, e li vedono solo le persone della tua azienda che usano il servizio e AILATI.
+  Il lavoro lo fa Claude (Anthropic) con il metodo AILATI: i tuoi file non servono ad addestrare i modelli.
+  Per problemi o dubbi: <a href="mailto:luciano.preatoni@ailatinetwork.com">luciano.preatoni@ailatinetwork.com</a>,
+  oppure <a href="https://calendar.app.google/Bbzf7qiQBK6jHLwY9" target="_blank" rel="noopener">prenota una call con Luciano</a> (30 minuti, su Google Meet).
+</footer>
+
+<script src="pagina.js"></script>
+</body>
+</html>
