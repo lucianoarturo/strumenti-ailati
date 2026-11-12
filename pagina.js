@@ -259,7 +259,7 @@ function leggiPezzo(file, inizio, fine) {
   return new Promise(function (ok, ko) {
     var r = new FileReader();
     r.onload = function () { ok(String(r.result).split(',')[1] || ''); };
-    r.onerror = function () { ko(new Error('Non riesco a leggere il file ' + file.name)); };
+    r.onerror = function () { ko(new Error('Non riesco a leggere il file ' + file.name + '. Di solito succede se il file è aperto in un altro programma (per esempio Excel) o se è stato modificato dopo averlo scelto: chiudilo, sceglilo di nuovo e riprova. Se il file sta in una cartella di rete o su OneDrive, copialo prima sul desktop.')); };
     r.readAsDataURL(file.slice(inizio, fine));
   });
 }
